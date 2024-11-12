@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="flex-center">
+    <div class="login-container">
+      <div class="login-form">
+        <h2 class="title">LOGIN</h2>
+        <p class="subtitle">Sign in to start your session</p>
+        <!-- Error message if needed -->
+        <p class="error-message" id="error-message"></p>
+        
+        <!-- Login form -->
+        <form id="login-form">
+          <div class="input-group">
+            <input  class="input-field"  placeholder="Username"  type="text"  id="username" />
+          </div>
+          <div class="input-group">
+  <input class="input-field"placeholder="Password" type="password"id="password" />
+ </div> <button class="sign-in-button" type="submit">SIGN IN</button> </form>
+
+        <p class="subtitle">Use another service to log in.</p>
+        <div class="social-buttons">
+          <button class="social-button">Microsoft</button>
+          <button class="social-button">Facebook</button>
+        </div>
+      </div>
+
+      <!-- Side image/logo -->
+      <div class="logo-container">
+        <img alt="NCC Limited logo with a colorful circular design" id="logo-image" src="logo.png" />
+      </div>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
