@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: lightblue;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  width: 70%;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.login-form {
+  font-family: 'poppins',sans-serif;
+  width: 50%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.subtitle, .error-message {
+  color: #4a5568;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.error-message {
+  color: #e53e3e;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-field {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem;
+  width: 150%;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column; /* Adjust as necessary */
+
+
+}
+
+.sign-in-button {
+  font-family: 'poppins',sans-serif;
+  width: 5rem;
+  display: block;
+  margin: 0 auto;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: whitesmoke;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s;
+}
+
+.sign-in-button:hover {
+  background-color: #2563eb;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-button {
+  font-family: 'poppins',sans-serif;
+  background-color: #6b21a8;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.social-button:hover {
+  background-color: #5a189a;
+}
+
+.logo-container {
+  width: 50%;
+  background: steelblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-container img {
+  align-items: center;
+  max-width: 80%; /* Ensures the logo doesn’t overflow the container */
+  height: auto;    /* Maintains aspect ratio */
+  display: block;  /* Removes any unwanted space below the image */
+}
