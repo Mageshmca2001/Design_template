@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="Wireframe.css">
     <!-- Boxiocns CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="icon" href="icon.png" type="x-icon" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,12 +96,12 @@
       <!-----------Lagout------------------>
 
       <li>
-    <a href="../index.html">
+    <a href="#" onclick="logout()">
      <i class='bx bx-log-out' ></i>
      <span class="link_name">Logout</span>
      </a>
      <ul class="sub-menu blank">
-        <li><a class="link_name" href="../index.html">Logout</a></li>
+        <li><a class="link_name" href="#" onclick="logout()">Logout</a></li>
       </ul>
      </li>
 </ul>
@@ -114,35 +115,54 @@
     <!-------------container--------------->
 
     <div class="container">
-      <div class="card blue">
-          <div class="number">SNRM</div>
-          <div class="label">Total Number of Meter</div>
-          <div class="more-info">
-            <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <div class="card green">
-          <div class="number">AARQ</div>
-          <div class="label">Daily Reports</div>
-          <div class="more-info">
-            <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <div class="card yellow">
-          <div class="number">AR</div>
-          <div class="label">Monthly Reports</div>
-          <div class="more-info">
-            <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      <div class="card red">
-          <div class="number">Disconnect</div>
-          <div class="label">Year of Reports</div>
-          <div class="more-info">
-            <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-      </div>
-      </div>
+        <div class="card blue">
+            <div class="number">Users</div>
+            <div class="col-xs-6">
+                <i class="fa fa-users fa-2x"></i>
+            </div>
+            <div class="more-info">
+              <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="card green">
+            <div class="number">Configuration</div>
+            <div class="col-xs-6">
+                <i class="fa fa-cogs fa-2x"></i>
+            </div>
+            
+            <div class="more-info">
+              <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="card yellow">
+            <div class="number">Analytics</div>
+            <div class="col-xs-6">
+                <i class="fa fa-chart-line fa-2x"></i>
+            </div>
+            <div class="more-info">
+              <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+
+        <div class="card red">
+            <div class="number">Meters</div>
+            <div class="col-xs-6">
+                <i class="fa fa-tachometer-alt fa-2x"></i>
+            </div>
+            <div class="more-info">
+              <a href="../index.html">More info <i class="fas fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+
+      
     </section>
 
 
