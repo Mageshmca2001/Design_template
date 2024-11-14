@@ -11,6 +11,7 @@ let arrow = document.querySelectorAll(".arrow");
   sidebarBtn.addEventListener("click", ()=>{
     sidebar.classList.toggle("close");
   });
+<<<<<<< HEAD:admin/Wireframe.js
 
 
   function logout() {
@@ -28,3 +29,5 @@ let arrow = document.querySelectorAll(".arrow");
         window.location.href = "../index.html";  
     }
 }
+=======
+>>>>>>> 25b8de52c27a2200d5f238701dc8abf38366e8f1:admin/index.js
