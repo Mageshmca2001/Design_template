@@ -28,3 +28,57 @@ let arrow = document.querySelectorAll(".arrow");
         window.location.href = "../index.html";  
     }
 }
+
+
+/* api running */
+
+const ctx = document.getElementById('Api-Posting').getContext('2d');
+const cpuUsageChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: Array.from({length: 120}, (_, i) => i + 1),
+        datasets: [{
+            label: 'Post Forwarding',
+            data: Array.from({length: 120}, () => Math.floor(Math.random() * 100)),
+            backgroundColor: 'rgba(0, 188, 212, 0.5)',
+            borderColor: '#00bcd4',
+            fill: true,
+        }]
+    },
+    options: {
+        scales: {
+            x: {
+                beginAtZero: true
+            },
+            y: {
+                beginAtZero: true,
+                max: 100
+            }
+        }
+    }
+});
+
+let interval;
+
+function updateChart() {
+    cpuUsageChart.data.datasets[0].data.shift();
+    cpuUsageChart.data.datasets[0].data.push(Math.floor(Math.random() * 100));
+    cpuUsageChart.update();
+}
+
+document.getElementById('toggle').addEventListener('change', function() {
+    if (this.checked) {
+        interval = setInterval(updateChart, 1000); // Update every second
+    } else {
+        clearInterval(interval);
+    }
+});
+
+/* Search-menu */
+
+const searchToggle = document.querySelector('.search-toggle');
+    const searchBar = document.querySelector('.search-bar');
+
+    searchToggle.addEventListener('click', () => {
+      searchBar.classList.toggle('active');
+    });
