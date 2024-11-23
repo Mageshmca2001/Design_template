@@ -13,7 +13,7 @@
   left: 0;
   height: 100%;
   width: 260px;
-  background: darkblue;
+  background:blue;
   z-index: 100;
   transition: all 0.5s ease;
 }
@@ -32,12 +32,12 @@
 }
 
 .sidebar::-webkit-scrollbar-thumb {
-  background-color: darkblue; /* Color of the scrollbar thumb */
+  background-color: blue; /* Color of the scrollbar thumb */
   border-radius: 4px;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
-  background-color: darkblue; /* Darker color on hover */
+  background-color: blue; /* Darker color on hover */
 }
 
 .sidebar .logo-details i{
@@ -77,7 +77,7 @@
   transition: all 0.4s ease;
 }
 .sidebar .nav-links li:hover{
-  background: darkblue;
+  background: blue;
 }
 .sidebar .nav-links li .iocn-link{
   display: flex;
@@ -121,18 +121,19 @@
 .sidebar .nav-links li .sub-menu{
   padding: 6px 6px 14px 80px;
   margin-top: -10px;
-  background: darkblue;
+  background: blue;
   display: none;
 }
 .sidebar .nav-links li.showMenu .sub-menu{
   display: block;
 }
 .sidebar .nav-links li .sub-menu a{
+  font-family: 'poppins' sans-serif;
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   padding: 5px 0;
   white-space: nowrap;
-  opacity: 0.6;
+  opacity: 0.8;
   transition: all 0.3s ease;
 }
 .sidebar .nav-links li .sub-menu a:hover{
@@ -182,7 +183,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: steel;
+  background: blue;
   padding: 12px 0;
   transition: all 0.5s ease;
 }
@@ -202,7 +203,7 @@
   object-fit: cover;
   border-radius: 16px;
   margin: 0 14px 0 12px;
-  background: darkblue;
+  background: steelblue;
   transition: all 0.5s ease;
 }
 .sidebar.close .profile-details img{
@@ -225,7 +226,7 @@
 }
 .home-section{
   position: relative;
-  background: #E4E9F7;
+  background: whitesmoke;
   height: 100vh;
   left: 260px;
   width: calc(100% - 260px);
@@ -242,7 +243,7 @@
 }
 .home-section .home-content .bx-menu,
 .home-section .home-content .text{
-  color: darkblue;
+  color: black;
   font-size: 35px;
 }
 .home-section .home-content .bx-menu{
@@ -444,7 +445,7 @@
 
 .search-bar input {
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid;
   border-radius: 4px;
   width: 100%;
 }
@@ -466,3 +467,10 @@
     max-width: 100%; /* Allow full width on small screens */
   }
 }
+
+
+.form-control{
+  margin-bottom: 1.5rem;
+}
+
+

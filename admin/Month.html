@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Admin Dashboard  </title>
+    <link rel="stylesheet" href="Wireframe.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="icon.png" type="x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+    <link rel="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.bootstrap5.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+
+
+
+    
+
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">Admin Dashboard</span>
+    </div>
+    <!--------------Dashboard------------------>
+    <ul class="nav-links">
+      <li class="spaced-section">
+            <div class="iocn-link">
+                <a href="index.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="index.html">Dashboard</a></li>
+                <li><a href="Daily.html">DailyReports</a></li>
+                <li><a href="Month.html">MonthlyReports</a></li>
+                <li><a href="Meter.html">MeterReports</a></li>
+            </ul>
+        </li>
+        <!-------Configuration -------------------->
+
+
+        <!------<button id="exportButton">Export to Excel</button>------->
+
+        <!-- Area to display the file path -->
+        <!--------<p id="filePathDisplay"></p>------->
+    
+        <!--------------Dump-------------->
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Analytics</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analytics</a></li>
+        </ul>
+      </li>
+     
+        <!----------Chart----------------->
+        <li>
+        <a href="#">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Chart</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Chart</a></li>
+        </ul>
+      </li>
+      <!------------User----------------->
+      <li>
+        <a href="#">
+            <i class='bx bxs-user-circle'></i>
+          <span class="link_name">User</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">User</a></li>
+        </ul>
+      </li>
+      <!----------setting----------->
+
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Setting</a></li>
+        </ul>
+      </li>
+      <!-----------Lagout------------------>
+
+      <li>
+    <a href="#" onclick="logout()">
+     <i class='bx bx-log-out' ></i>
+     <span class="link_name">Logout</span>
+     </a>
+     <ul class="sub-menu blank">
+        <li><a class="link_name" href="#" onclick="logout()">Logout</a></li>
+      </ul>
+     </li>
+</ul>
+  </div>
+
+  <section class=" bg-white home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">DailyReports</span>
+
+ <!------Search ------->
+ 
+      <i class='bx bx-search search-toggle'></i>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="button"><i class='bx bx-search'></i></button>
+      </div>
+    </div>
+    </div>
+
+
+    <!----------Select the Input------------>
+
+
+  <div class= "p-4" >
+  <div class="bg-white p-6 rounded ">
+    <div class="flex justify-between items-center mb-4">
+        <h2 class="text-lg font-semibold">Select From Date to Current Date</h2>
+        
+    </div>
+    <div class="grid grid-cols-5 gap-4 mb-4">
+        <div>
+            <label class="block text-sm font-medium text-gray-700">From Date</label>
+            <div class="flex items-center border rounded px-2 py-1">
+                <input type="date" value="2024-11-20" class="w-full border-none focus:ring-0">
+                
+            </div>
+        </div>
+        <div>
+            <label class="block text-sm font-medium text-gray-700">To Date</label>
+            <div class="flex items-center border rounded px-2 py-1">
+                <input type="date" value="2024-11-21" class="w-full border-none focus:ring-0">
+                
+            </div>
+          </div>
+        <div class="flex items-end space-x-4">
+            <button onclick="showTable()" class="bg-blue-500 text-white px-4 py-2 rounded">Show</button>
+            <button id="Exportbtn" class="bg-green-500 text-white px-4 py-2 rounded">Export</button>
+        </div>
+    </div>
+    
+</div>
+</div>
+
+<!--------------------DataTable------------------->
+
+<div id="dataTable" style="display: none;"class= " container p-8" >
+<div class="bg-white p-6 rounded ">
+  
+  <div class="flex justify-between items-center mb-4">
+    <div>
+        <label for="entries" class="mr-2">Show</label>
+        <select id="entries" class="border border-gray-300 rounded p-1">
+            <option>10</option>
+            <option>25</option>
+            <option>50</option>
+            <option>All</option>
+        </select>
+        <span class="ml-2">entries</span>
+   </div>
+    <div>
+      <label for="search" class="mr-2">Search:</label>
+      <input type="text" id="search" class="border border-gray-300 rounded p-1">
+    </div>
+</div>
+<table id="Table" class="min-w-full bg-white border border-gray-300">
+  <thead>
+      <tr>
+          <th class="border border-gray-300 text-white bg-blue-500 px-4 py-2">Date <i class="fas fa-sort"></i></th>
+          <th class="border border-gray-300 text-white bg-blue-500 px-4 py-2">No.of.Meters Tested <i class="fas fa-sort"></i></th>
+          <th class="border border-gray-300 text-white bg-blue-500 px-4 py-2">No.of.Meters Completed <i class="fas fa-sort"></i></th>
+          <th class="border border-gray-300 text-white bg-blue-500 px-4 py-2">No.of.Meters Reworked<i class="fas fa-sort"></i></th>
+          <th class="border border-gray-300 text-white bg-blue-500 px-4 py-2">No.of.Meters Pending<i class="fas fa-sort"></i></th>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+      <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+      <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+      <td class="border border-gray-300 text-center px-4 py-2">500</td>
+      <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  </tr>
+  <tr>
+    <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+    <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+    <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+    <td class="border border-gray-300 text-center px-4 py-2">500</td>
+    <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+<tr>
+  <td class="border border-gray-300 text-center px-4 py-2">21.11.2024</td>
+  <td class="border border-gray-300 text-center px-4  py-2">2,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">1,000</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+  <td class="border border-gray-300 text-center px-4 py-2">500</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="flex justify-between items-center mt-4">
+  <div>
+    <span class="pagination-info">Showing 1 to 10 of 57 entries</span>
+  </div>
+  <div class="flex space-x-1 pagination">
+      <button class="px-3 py-1 border border-gray-300 rounded bg-white"data-action="prev" disabled>Previous</button>
+      <button class="px-3 py-1 border border-gray-300 rounded bg-blue-500 text-white">1</button>
+      <button class="px-3 py-1 border border-gray-300 rounded bg-white">2</button>
+      <button class="px-3 py-1 border border-gray-300 rounded bg-white">3</button>
+      <button class="px-3 py-1 border border-gray-300 rounded bg-white">4</button>
+      <button class="px-3 py-1 border border-gray-300 rounded bg-white">5</button>
+      <button class="px-3 py-1 border border-gray-300 rounded bg-white">6</button>
+      <button class="px-3 py-1 border border-gray-300 rounded bg-white"data-action="next">Next</button>
+  </div>
+</div>
+</div>
+
+
+
+</div>
+ </div>
+ </div>
+ 
+    
+
+
+
+  
+    
+
+
+
+
+
+ <!------------End-Container Row-------->
+
+</section>
+
+
+    <script src="Wireframe.js"></script>
+</body>
+</html>
