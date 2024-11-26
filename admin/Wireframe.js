@@ -136,3 +136,89 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initial display of rows
   displayRows();
 });
+
+
+/* Api fetching */
+
+window.onload = function () {
+    const dataPoints = [];
+    let chart;
+
+    // Fetch data from API
+    function fetchData(startX, startY, length, callback) {
+        $.getJSON(
+            `https://canvasjs.com/services/data/datapoints.php?xstart=${startX}&ystart=${startY}&length=${length}&type=json`,
+            function (data) {
+                callback(data);
+            }
+        );
+    }
+
+    // Initialize Chart
+    function initializeChart() {
+        fetchData(1, 10, 10, function (data) {
+            data.forEach((value) => {
+                dataPoints.push({ x: value[0], y: parseInt(value[1]) });
+            });
+
+            chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2",
+                title: {
+                    text: "Live Data Updates",
+                    fontColor: "#4B5563",
+                    fontFamily: "sans-serif",
+                },
+                axisY: {
+                    includeZero: false,
+                },
+                data: [
+                    {
+                        type: "line",
+                        markerType: "circle",
+                        markerColor: "#1D4ED8",
+                        lineColor: "#2563EB",
+                        dataPoints: dataPoints,
+                    },
+                ],
+            });
+
+            chart.render();
+            updateChart(); // Start live updates
+        });
+    }
+
+    // Update Chart Periodically
+    function updateChart() {
+        const lastX = dataPoints.length + 1;
+        const lastY = dataPoints[dataPoints.length - 1].y;
+
+        fetchData(lastX, lastY, 1, function (data) {
+            data.forEach((value) => {
+                dataPoints.push({ x: parseInt(value[0]), y: parseInt(value[1]) });
+            });
+            chart.render();
+            setTimeout(updateChart, 1000);
+        });
+    }
+
+    // Refresh Data on Button Click
+    document
+        .getElementById("refreshButton")
+        .addEventListener("click", function () {
+            const lastX = dataPoints.length + 1;
+            const lastY = dataPoints[dataPoints.length - 1].y;
+
+            fetchData(lastX, lastY, 5, function (data) {
+                data.forEach((value) => {
+                    dataPoints.push({ x: parseInt(value[0]), y: parseInt(value[1]) });
+                });
+                chart.render();
+            });
+        });
+
+    // Initialize the chart and fetch initial data
+    initializeChart();
+};
+
+
