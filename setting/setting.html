@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    
+    <title> Admin Dashboard  </title>
+    <link rel="stylesheet" href="../admin/Wireframe.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="icon.png" type="x-icon" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+    <link rel="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+    <link rel="https://cdn.datatables.net/rowreorder/1.5.0/css/rowReorder.bootstrap5.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.1/xlsx.full.min.js"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+
+
+    
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">Admin Dashboard</span>
+    </div>
+    <!--------------Dashboard------------------>
+    <ul class="nav-links">
+      <li class="spaced-section">
+            <div class="iocn-link">
+                <a href="index.html">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow'></i>
+            </div>
+            <ul class="sub-menu">
+              <li><a class="link_name" href="../admin/index.html">Dashboard</a></li>
+                <li><a href="../admin/Daily.html">DailyReports</a></li>
+                <li><a href="../admin/Month.html">MonthlyReports</a></li>
+                <li><a href="../admin/Meter.html">MeterReports</a></li>
+            </ul>
+        </li>
+        <!-------Configuration -------------------->
+
+
+        <!------<button id="exportButton">Export to Excel</button>------->
+
+        <!-- Area to display the file path -->
+        <!--------<p id="filePathDisplay"></p>------->
+    
+        <!--------------Dump-------------->
+      <li>
+        <a href="#">
+          <i class='bx bx-pie-chart-alt-2' ></i>
+          <span class="link_name">Analytics</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Analytics</a></li>
+        </ul>
+      </li>
+     
+        <!----------Chart----------------->
+        <li>
+        <a href="../admin/chart.html">
+          <i class='bx bx-line-chart' ></i>
+          <span class="link_name">Chart</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="../admin/chart.html">Chart</a></li>
+        </ul>
+      </li>
+      <!------------User----------------->
+      <li>
+        <a href="../Role/User.html">
+            <i class='bx bxs-user-circle'></i>
+          <span class="link_name">User</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="../Role/User.html">User</a></li>
+        </ul>
+      </li>
+      <!----------setting----------->
+
+      <li>
+        <a href="setting.html">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">Setting</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="setting.html">Setting</a></li>
+        </ul>
+      </li>
+      <!-----------Lagout------------------>
+
+      <li>
+    <a href="#" onclick="logout()">
+     <i class='bx bx-log-out' ></i>
+     <span class="link_name">Logout</span>
+     </a>
+     <ul class="sub-menu blank">
+        <li><a class="link_name" href="#" onclick="logout()">Logout</a></li>
+      </ul>
+     </li>
+</ul>
+  </div>
+
+  <section class=" bg-white home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text"> Account Setting </span>
+
+ <!------Search ------->
+ 
+      <i class='bx bx-search search-toggle'></i>
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="button"><i class='bx bx-search'></i></button>
+      </div>
+    </div>
+    </div>
+
+
+    <!----------Select the Input------------>
+
+
+  
+
+
+<!---<div id="dataTable" style="display: none;"class= " container p-8" >-----------------DataTable------------------->
+<br>
+<br>
+    <div class="max-w-4xl mx-auto bg-gray-100 shadow-md rounded-lg">
+        <div class="flex">
+         <div class="w-1/4 border-r p-4">
+          <ul class="space-y-4">
+           <li class="font-semibold text-gray-700">
+            General
+           </li>
+
+           <br>
+
+           <li class="text-gray-500">
+            Change password
+           </li>
+
+           <br>
+
+           <li class="text-gray-500">
+            Info
+           </li>
+
+           <br>
+
+           <li class="text-gray-500">
+            Social links
+           </li>
+
+           <br>
+
+
+           <li class="text-gray-500">
+            Connections
+           </li>
+           
+           <br>
+
+           <li class="text-gray-500">
+            Notifications
+           </li>
+           
+           <br>
+
+          </ul>
+         </div>
+         <div class="w-3/4 p-4">
+          <div class="flex items-center mb-4">
+           <img alt="User avatar" class="w-20 h-20 rounded-full mr-4" height="80" src="image.png" width="80"/>
+           <div>
+            <button class="bg-blue-100 text-blue-500 px-4 py-2 rounded-md mr-2">
+             Upload new photo
+            </button>
+            <button class="bg-gray-100 text-gray-500 px-4 py-2 rounded-md">
+             Reset
+            </button>
+            <p class="text-gray-500 text-sm mt-1">
+             Allowed JPG, GIF or PNG. Max size of 800K
+            </p>
+           </div>
+          </div>
+          <div class="space-y-4">
+           <div>
+            <label class="block text-gray-700">
+             Username
+            </label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="text"/>
+           </div>
+           <div>
+            <label class="block text-gray-700">
+             Name
+            </label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="text" />
+           </div>
+           <div>
+            <label class="block text-gray-700">
+             E-mail
+            </label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="email" />
+            <div class="bg-yellow-100 text-yellow-700 p-2 rounded-md mt-2">
+             Your email is not confirmed. Please check your inbox.
+             <a class="text-blue-500" href="#">
+              Resend confirmation
+             </a>
+            </div>
+           </div>
+           <div>
+            <label class="block text-gray-700">
+             Company
+            </label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="text" />
+           </div>
+          </div>
+          <div class="flex justify-end mt-4">
+           <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">
+            Save changes
+           </button>
+           <button class="bg-gray-100 text-gray-500 px-4 py-2 rounded-md">
+            Cancel
+           </button>
+          </div>
+         </div>
+        </div>
+        </div>
+        
+
+
+
+
+</section>
+    
+
+
+
+  
+    
+
+
+
+
+
+ <!------------End-Container Row-------->
+
+
+
+
+    <script src="../admin/Wireframe.js"></script>
+</body>
+</html>

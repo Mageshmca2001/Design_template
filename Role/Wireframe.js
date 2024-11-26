@@ -44,15 +44,7 @@ const searchToggle = document.querySelector('.search-toggle');
 
     /* api running*/
 
-    function showTable() {
-      var table = document.getElementById("dataTable",);
-      if (table.style.display === "none") {
-          table.style.display = "table";
-      } else {
-          table.style.display = "none";
-      }
-  } 
-
+  
 
   /* Search */
 
@@ -221,3 +213,81 @@ window.onload = function () {
     initializeChart();
 };
 
+/* add User ,Delete ,View */
+
+
+let editingRow = null;
+
+   function openModal() {
+     document.getElementById('userModal').classList.remove('hidden');
+     document.getElementById('modalTitle').innerText = 'Add User';
+     document.getElementById('userForm').reset();
+     editingRow = null;
+   }
+
+   function closeModal() {
+     document.getElementById('userModal').classList.add('hidden');
+   }
+
+   function saveUser() {
+     const name = document.getElementById('name').value;
+     const dateCreated = document.getElementById('dateCreated').value;
+     const role = document.getElementById('role').value;
+     const status = document.getElementById('status').value;
+
+     if (editingRow) {
+       editingRow.cells[1].innerText = name;
+       editingRow.cells[2].innerText = dateCreated;
+       editingRow.cells[3].innerText = role;
+       editingRow.cells[4].innerText = status;
+     } else {
+       const table = document.getElementById('userTable');
+       const row = table.insertRow();
+       row.classList.add('hover:bg-gray-100');
+       row.innerHTML = `
+         <td class="py-2 px-4 border-b">${table.rows.length}</td>
+         <td class="py-2 px-4 border-b">${name}</td>
+         <td class="py-2 px-4 border-b">${dateCreated}</td>
+         <td class="py-2 px-4 border-b">${role}</td>
+         <td class="py-2 px-4 border-b">${status}</td>
+         <td class="py-2 px-4 border-b flex items-center">
+           <button class="text-blue-600 mr-2" onclick="editUser(this)">
+             <i class="fas fa-cog"></i>
+           </button>
+           <button class="text-red-600" onclick="deleteUser(this)">
+             <i class="fas fa-trash"></i>
+           </button>
+         </td>
+       `;
+     }
+
+     closeModal();
+   }
+
+   function editUser(button) {
+     const row = button.parentElement.parentElement;
+     editingRow = row;
+     document.getElementById('modalTitle').innerText = 'Edit User';
+     document.getElementById('name').value = row.cells[1].innerText;
+     document.getElementById('dateCreated').value = row.cells[2].innerText;
+     document.getElementById('role').value = row.cells[3].innerText;
+     document.getElementById('status').value = row.cells[4].innerText;
+     openModal();
+   }
+
+   function deleteUser(button) {
+     if (confirm('Are you sure you want to delete this user?')) {
+       const row = button.parentElement.parentElement;
+       row.remove();
+     }
+   }
+
+   function exportToExcel() {
+     alert('Export to Excel functionality is not implemented.');
+   }
+
+   /* togglt */
+   
+   $(document).ready(function(){
+	$('[data-toggle="tooltip"]').tooltip();
+});

@@ -1,0 +1,76 @@
+<html>
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    @media (max-width: 768px) {
+      .sidebar {
+        display: none;
+      }
+      .sidebar.active {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="max-w-4xl mx-auto bg-white shadow-md rounded-lg">
+    <div class="flex flex-col md:flex-row">
+      <div class="w-full md:w-1/4 border-r p-4 sidebar">
+        <ul class="space-y-4">
+          <li class="font-semibold text-gray-700">General</li>
+          <li class="text-gray-500">Change password</li>
+          <li class="text-gray-500">Info</li>
+          <li class="text-gray-500">Social links</li>
+          <li class="text-gray-500">Connections</li>
+          <li class="text-gray-500">Notifications</li>
+        </ul>
+      </div>
+      <div class="w-full md:w-3/4 p-4">
+        <div class="flex items-center mb-4">
+          <img alt="User avatar" class="w-20 h-20 rounded-full mr-4" height="80" src="https://placehold.co/80x80" width="80"/>
+          <div>
+            <button class="bg-blue-100 text-blue-500 px-4 py-2 rounded-md mr-2">Upload new photo</button>
+            <button class="bg-gray-100 text-gray-500 px-4 py-2 rounded-md">Reset</button>
+            <p class="text-gray-500 text-sm mt-1">Allowed JPG, GIF or PNG. Max size of 800K</p>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-gray-700">Username</label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="text" value="nmaxwell"/>
+          </div>
+          <div>
+            <label class="block text-gray-700">Name</label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="text" value="Nelle Maxwell"/>
+          </div>
+          <div>
+            <label class="block text-gray-700">E-mail</label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="email" value="nmaxwell@mail.com"/>
+            <div class="bg-yellow-100 text-yellow-700 p-2 rounded-md mt-2">
+              Your email is not confirmed. Please check your inbox.
+              <a class="text-blue-500" href="#">Resend confirmation</a>
+            </div>
+          </div>
+          <div>
+            <label class="block text-gray-700">Company</label>
+            <input class="w-full border border-gray-300 rounded-md p-2" type="text" value="Company Ltd."/>
+          </div>
+        </div>
+        <div class="flex justify-end mt-4">
+          <button class="bg-blue-500 text-white px-4 py-2 rounded-md mr-2">Save changes</button>
+          <button class="bg-gray-100 text-gray-500 px-4 py-2 rounded-md">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="md:hidden fixed bottom-4 right-4 bg-blue-500 text-white p-4 rounded-full" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+  <script>
+    function toggleSidebar() {
+      document.querySelector('.sidebar').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
