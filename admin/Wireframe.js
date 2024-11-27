@@ -221,3 +221,8 @@ window.onload = function () {
     initializeChart();
 };
 
+
+/* API running server sevices */
+
+/* api running */
+
